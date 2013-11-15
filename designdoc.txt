@@ -1,0 +1,65 @@
+***a list of database tables and fields (and their types) that you’ve decided to implement;
+library of 2,3,4,5,6,7 letter words
+
+***a list of classes and methods (and their return types and/or arguments) that you’ve decided to implement
+classes:
+word
+restart
+exit
+evil
+keyboard
+moves
+
+methodes:
+algorithm
+evil_algorithm
+contains
+pick_word, kiest woord als evil uit staat
+
+
+PSEUDO CODE
+//has a letter as input, will pass an argument to the word object or to the moves object
+Algorithm(letter){
+  word->guesses++
+  if(evil->on){
+    word->theword = evil_algorithm(letter,word->guessedletters,move->moves_left)
+  }
+
+  if(contains(word->theword,letter)){
+    word(letter,places)
+  }
+  else{
+    moves(-1)
+  }
+}
+
+//if word does not contain letter-> moves->moves_left = moves->moves_left -1
+//if word does contain letter->word(letter,places)
+}
+contains(theword,letter){
+
+  return places where the letter is.  example:[1,3,4]
+  if cant find any return 0
+}
+//try to make false
+evil_algorithm(letter,guessedletters,moves_left){
+
+  return theword
+}
+
+//gets a letter from the keyboard and passes it to the algorithm
+class keyboard{
+Algoritm(letter)
+}
+
+class moves{
+  int moves_left
+}
+
+class word{
+  int guesses
+  char theword[]
+  char guessedletters[]
+}
+
+***more advanced sketches of UIs.
