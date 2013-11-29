@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+ 
+    <TextView
+        android:id="@+id/settingsDialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="6dp" />
+    
+    <TextView
+        android:id="@+id/length_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/settingsDialog"  
+        android:layout_marginRight="6dp" />
+
+    <SeekBar
+        android:id="@+id/length_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/length_text"
+        android:max="20"
+    />
+    <TextView
+        android:id="@+id/length_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/length_bar"        
+    /> 
+    
+    <TextView
+        android:id="@+id/lives_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/length_value"        
+    />
+
+    <SeekBar
+        android:id="@+id/lives_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:minHeight="6dip"
+        android:maxHeight="6dip" 
+        android:layout_below="@+id/lives_text" 
+        android:max="26"  
+    />
+     <TextView
+        android:id="@+id/lives_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lives_bar"        
+    /> 
+    <Button
+        android:id="@+id/ContinueButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Continue"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_below="@+id/lives_bar"
+        />
+     
+</RelativeLayout>
