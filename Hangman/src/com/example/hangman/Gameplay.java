@@ -1,5 +1,10 @@
 package com.example.hangman;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Random;
 
 import android.app.Activity;
@@ -34,9 +39,11 @@ public class Gameplay{
 	public String word = "";
 	public String tempword ="";
 
+	private ArrayList<String> words;  
 	Context GameplayContext = null;
     public SaveData SaveObject;
     public CheckData getData;
+    public Activity GameplayActivity;
 	public Gameplay(Context context){
 		this.GameplayContext = context;
 		Activity GameplayActivity = (context instanceof Activity)? (Activity) context:null;
@@ -50,7 +57,9 @@ public class Gameplay{
 
 		Letters = (TextView) GameplayActivity.findViewById(R.id.guessedLetters);
 		Letters.setText("Guessed letters : ");
-
+		getData = new CheckData(GameplayContext);
+		int numword = Integer.parseInt(getData.getLength());
+		loadWords(numword);
 		//woord invullen
 		getWord();
 		tempword ="";
@@ -180,26 +189,40 @@ public class Gameplay{
 		}
 	}
 	void getWord(){
-		//pick a random word
-		//words moeten misschien nog to lowercase
-		String [] wordDatabase;
-		wordDatabase= new String[10];
-		wordDatabase[0] = "jehova";
-		wordDatabase[1] = "devoon";
-		wordDatabase[2] = "vissig";
-		wordDatabase[3] = "hoofdje";
-		wordDatabase[4] = "prefix";
-		wordDatabase[5] = "voyant";
-		wordDatabase[6] = "bezweet";
-		wordDatabase[7] = "concaaf";
-		wordDatabase[8] = "clublid";
-		wordDatabase[9] = "zwengel";
-
+		
 		Random randomGenerator = new Random();
 		int randomInt = randomGenerator.nextInt(100);
-		randomInt = randomInt % wordDatabase.length;
-		word = wordDatabase[randomInt];
+		randomInt = randomInt % words.size();
+		//loadWords(randomInt);
+		word = words.get(randomInt).toLowerCase();
+		
+		
+		
 	}
+	void loadWords(int length)
+    {
+            words = new ArrayList<String>();
+            try
+            {
+                    InputStream stream = GameplayContext.getAssets().open("words" + length + ".txt");
+                    InputStreamReader inputStreamReader = new InputStreamReader(stream);
+                    BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                    
+                    String line;
+                    while((line = bufferedReader.readLine()) != null)
+                    {
+                            words.add(line);
+                    }
+                    
+                    bufferedReader.close();
+            }
+            catch(IOException e)
+            {
+                    Log.e("loadWords", e.getMessage());
+            }
+    }
+	
+	
 	String evil(String letter){
 		String theword = "somethingevil";
 		return theword;

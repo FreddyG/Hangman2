@@ -1,9 +1,16 @@
 package com.example.hangman;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.Dialog;
 
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -34,14 +41,18 @@ public class Game extends Activity {
 	private Settings gameSettings;
 	private Exit gameExit;
 	private Highscores gameHighscores;
+	private SaveData defaultSetting;
+	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_game);
-
+		defaultSetting = new SaveData(this);
+        defaultSetting.saveSettings("7", "10");
 		gameLogic = new Gameplay(this);
 		//wordParser = new Parser(this);
-
+        
 
 		RestartButton = (Button) findViewById(R.id.button2);
 		RestartButton.setOnClickListener(new OnClickListener() {
@@ -125,10 +136,9 @@ public class Game extends Activity {
 
 		});
 		
-		
-
 
 	}
+	
 
 
 	@Override
