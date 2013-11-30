@@ -34,26 +34,26 @@ public final class R {
         public static final int ContinueButton=0x7f09000d;
         public static final int action_settings=0x7f090017;
         public static final int button1=0x7f090000;
-        public static final int button2=0x7f090002;
+        public static final int button2=0x7f090004;
         public static final int declineButton=0x7f09000f;
-        public static final int guessedLetters=0x7f090007;
-        public static final int guesses=0x7f090006;
-        public static final int highscores=0x7f090009;
+        public static final int guessedLetters=0x7f090009;
+        public static final int guesses=0x7f09000a;
+        public static final int highscores=0x7f090007;
         public static final int imageDialog=0x7f09000b;
-        public static final int input=0x7f090005;
+        public static final int input=0x7f090003;
         public static final int length_bar=0x7f090012;
         public static final int length_text=0x7f090011;
         public static final int length_value=0x7f090013;
         public static final int lives_bar=0x7f090015;
         public static final int lives_text=0x7f090014;
         public static final int lives_value=0x7f090016;
-        public static final int saveGame=0x7f090008;
-        public static final int settings=0x7f09000a;
+        public static final int saveGame=0x7f090006;
+        public static final int settings=0x7f090008;
         public static final int settingsDialog=0x7f090010;
-        public static final int something=0x7f090003;
-        public static final int switch1=0x7f090001;
+        public static final int something=0x7f090005;
+        public static final int switch1=0x7f090002;
         public static final int textDialog=0x7f09000c;
-        public static final int theword=0x7f090004;
+        public static final int theword=0x7f090001;
     }
     public static final class layout {
         public static final int activity_game=0x7f030000;

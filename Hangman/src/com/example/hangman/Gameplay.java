@@ -59,6 +59,7 @@ public class Gameplay{
 		Letters.setText("Guessed letters : ");
 		getData = new CheckData(GameplayContext);
 		int numword = Integer.parseInt(getData.getLength());
+		Log.e("settings","numword = " + numword);
 		loadWords(numword);
 		//woord invullen
 		getWord();
@@ -70,8 +71,9 @@ public class Gameplay{
 		TheWord.setText(tempword);
 
 		//input mogelijk maken
+		
 		final EditText editText = (EditText) GameplayActivity.findViewById(R.id.input);
-        
+		
 		editText.addTextChangedListener(new TextWatcher(){
 
 			@Override
@@ -84,7 +86,7 @@ public class Gameplay{
 						Algorithm(arg0.toString());
 						
 					}
-					editText.setText("");
+					editText.setText("", TextView.BufferType.EDITABLE);
 				}
 			}
 
@@ -103,7 +105,7 @@ public class Gameplay{
 		}); 
 
 	}
-
+    
 	void doMove() {
 		movesLeft = movesLeft - 1;
 		Moves.setText("MovesLeft : " + movesLeft);
@@ -249,6 +251,9 @@ public class Gameplay{
 		guessesMade = 0;
 		Moves.setText("MovesLeft : " + movesLeft);
 		guessedL = "";
+		int numword = Integer.parseInt(getData.getLength());
+		Log.e("settings","numword = " + numword);
+		loadWords(numword);
 		getWord();
 		tempword ="";
 		for(int i = 0;i<word.length();i++){

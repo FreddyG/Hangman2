@@ -1,16 +1,12 @@
 package com.example.hangman;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
+
 
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.Dialog;
 
-import android.util.Log;
+
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -18,8 +14,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 
 import android.widget.ImageView;
-import android.widget.SeekBar;
-import android.widget.SeekBar.OnSeekBarChangeListener;
+
 import android.widget.TextView;
 
 //words lezen van xml
@@ -51,9 +46,9 @@ public class Game extends Activity {
 		defaultSetting = new SaveData(this);
         defaultSetting.saveSettings("7", "10");
 		gameLogic = new Gameplay(this);
-		//wordParser = new Parser(this);
-        
 
+        
+		
 		RestartButton = (Button) findViewById(R.id.button2);
 		RestartButton.setOnClickListener(new OnClickListener() {
 			@Override
@@ -70,6 +65,7 @@ public class Game extends Activity {
 				image.setImageResource(R.drawable.restart);
 
 				dialog.show();
+				
 				Button acceptButton = (Button) dialog.findViewById(R.id.AcceptButton);
 				// if button is clicked, close the custom dialog
 				acceptButton.setOnClickListener(new OnClickListener() {
@@ -96,7 +92,7 @@ public class Game extends Activity {
 			}
 
 		});
-
+        
 		ExitButton = (Button) findViewById(R.id.button1);
 		ExitButton.setOnClickListener(new OnClickListener() {
 			@Override
@@ -148,16 +144,7 @@ public class Game extends Activity {
 		return true;
 	}
 
-	public void EvilSwitch(View v) {
-		//pop up yes-> continue no->zet knop terug en stop
-		if(gameLogic.evil==1){
-			gameLogic.evil = 0;
-		}
-		else{
-			gameLogic.evil = 1;
-		}
-		gameLogic.Restart();
-	}
+
 
 
 }
